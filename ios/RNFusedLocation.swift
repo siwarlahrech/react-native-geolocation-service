@@ -104,7 +104,7 @@ class RNFusedLocation: RCTEventEmitter {
     locManager.delegate = self
     locManager.desiredAccuracy = getAccuracy(options)
     locManager.distanceFilter = distanceFilter
-    locManager.startUpdatingLocation()
+    locManager.requestLocation()
 
     self.successCallback = successCallback
     self.errorCallback = errorCallback
@@ -139,7 +139,7 @@ class RNFusedLocation: RCTEventEmitter {
 
     significantChanges
       ? locationManager.startMonitoringSignificantLocationChanges()
-      : locationManager.startUpdatingLocation()
+      : locationManager.requestLocation()
 
     useSignificantChanges = significantChanges
     observing = true
